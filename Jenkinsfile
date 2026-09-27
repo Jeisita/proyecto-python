@@ -2,11 +2,17 @@ pipeline {
     agent any 
     
     stages {
-        stage('Pruebas') {
+        stage('Instalar pytest') {
             steps {
-                sh 'python3 -m pytest'
+                sh 'python3 -m pip install --user pytest'
              }
          }
-     }
- }
+         
+         stage('Pruebas') {
+             steps {
+                 sh 'pytohon3 -m pytest'
+             }
+          }
+       }
+    }
 
